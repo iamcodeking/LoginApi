@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                  user1=user.getText().toString();
                  pass1=pass.getText().toString();
-                String url = "http://192.168.29.32:8080/loginapi.php";
+                String url = "http://(your pc address )/loginapi.php";
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
