@@ -36,7 +36,7 @@ public class signup extends AppCompatActivity {
                 siuser=usersi.getText().toString();
                 sipass=passsi.getText().toString();
                 siphone=phonesi.getText().toString();
-                String url = "http://192.168.29.32:8080/signup.php";
+                String url = "http://(your pc address)/signup.php";
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
