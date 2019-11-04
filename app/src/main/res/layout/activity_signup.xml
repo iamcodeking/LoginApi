@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".signup">
+
+        <EditText
+            android:layout_centerHorizontal="true"
+            android:id="@+id/siname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginStart="40dp"
+            android:paddingStart="12dp"
+            />
+        <EditText
+
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            android:id="@+id/sipass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/siname"
+            android:hint="Password"
+            android:layout_marginEnd="40dp"
+            android:layout_marginStart="40dp"
+            android:paddingStart="12dp"
+            />
+    <EditText
+        android:maxLength="10"
+
+        android:inputType="number"
+        android:id="@+id/siphone"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sipass"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="40dp"
+        android:paddingStart="12dp"
+        android:hint="Phone"
+
+        />
+    <Button
+        android:id="@+id/confirm"
+        android:textStyle="bold"
+        android:text="Sign Up"
+        android:background="@android:color/holo_orange_light"
+        android:layout_marginTop="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/siphone"
+        android:layout_centerHorizontal="true"
+        />
+</RelativeLayout>

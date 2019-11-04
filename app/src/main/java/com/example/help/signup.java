@@ -1,12 +1,10 @@
 package com.example.help;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -20,35 +18,30 @@ import com.android.volley.toolbox.Volley;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity {
-    EditText user,pass;
-    Button login;
-    TextView sign;
-    String user1;
-    String pass1;
+public class signup extends AppCompatActivity {
+    Button signup;
+    EditText usersi,passsi,phonesi;
+    String siuser,sipass,siphone;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        user=findViewById(R.id.user);
-        pass=findViewById(R.id.password);
-        login=findViewById(R.id.login);
-        sign=findViewById(R.id.signup);
-        login.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_signup);
+        signup=findViewById(R.id.confirm);
+        usersi=findViewById(R.id.siname);
+        passsi=findViewById(R.id.sipass);
+        phonesi=findViewById(R.id.siphone);
+        signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                 user1=user.getText().toString();
-                 pass1=pass.getText().toString();
-                String url = "http://192.168.29.32:8080/loginapi.php";
+                siuser=usersi.getText().toString();
+                sipass=passsi.getText().toString();
+                siphone=phonesi.getText().toString();
+                String url = "http://192.168.29.32:8080/signup.php";
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                      //  Toast.makeText(MainActivity.this, response, Toast.LENGTH_SHORT).show();
-                        if (response.equals("yes")) {
-                            Toast.makeText(MainActivity.this, "logged IN", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(MainActivity.this, "incorrect username/password", Toast.LENGTH_SHORT).show();
-                        }
+                          Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
+
                     }
                 }, new Response.ErrorListener() {
                     @Override
@@ -59,22 +52,17 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     protected Map<String, String> getParams() throws AuthFailureError {
                         Map<String,String> map=new HashMap<>();
-                        map.put("username",user1);
-                        map.put("password",pass1);
+                        map.put("username",siuser);
+                        map.put("password",sipass);
+                        map.put("phone",siphone);
                         return map;
                     }
                 };
                 RequestQueue requestQueue= Volley.newRequestQueue(getApplicationContext());
                 requestQueue.add(stringRequest);
-                }
-
-            });
-        sign.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,signup.class);
-                startActivity(intent);
             }
+
         });
     }
+
 }
