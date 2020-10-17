@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                       //  Toast.makeText(MainActivity.this, response, Toast.LENGTH_SHORT).show();
                         if (response.equals("yes")) {
+                            Toast.makeText(MainActivity.this, "Please Wait..", Toast.LENGTH_SHORT).show();
                             Toast.makeText(MainActivity.this, "logging...", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(MainActivity.this, "incorrect username/password", Toast.LENGTH_SHORT).show();
